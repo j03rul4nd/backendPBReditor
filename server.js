@@ -10,9 +10,25 @@ dotenv.config();
 const app = express();
 const server = createServer(app); // Crear un servidor HTTP
 // Configurar el endpoint HTTP
-app.get('/', (req, res) => {
-    res.send('{ "type": "log", "message": "Welcome to the website"}');
+// app.get('/', (req, res) => {
+//     res.send('{ "type": "log", "message": "Welcome to the website"}');
+// });
+
+
+app.get("/", (req, res) => {
+    const htmlResponse = `
+      <html>
+        <head>
+          <title>NodeJs y Express en Vercel</title>
+        </head>
+        <body>
+          <h1>Soy un proyecto Back end en vercel</h1>
+        </body>
+      </html>
+    `;
+    res.send(htmlResponse);
 });
+
 
 // Crear el servidor WebSocket
 const wss = new WebSocketServer({ server });
